@@ -17,14 +17,16 @@
                   (1+ (cdr (assoc char char-count))))
         (setq char-count (cons (cons char 1) char-count))))))
 
-(defun compare-char-counts(char-counts comparison-char-counts)
+(defun equal-char-count(char-count comparison-char-count)
+  "Return t if the submitted character counts are equal, false otherwise.
+CHAR-COUNT and COMPARISON-CHAR-COUNT should be alists in (character . count) format."
   (let ((are-equal t))
-    (dolist (char-count char-counts are-equal)
+    (dolist (char-count char-count are-equal)
       (if (not are-equal) nil)
-      (if (assoc (car char-count) comparison-char-counts)
+      (if (assoc (car char-count) comparison-char-count)
           (if (not (equal
                     (cdr char-count)
-                    (cdr (assoc (car char-count) comparison-char-counts))))
+                    (cdr (assoc (car char-count) comparison-char-count))))
               (setq are-equal nil))
         (setq are-equal nil)))))
 

@@ -31,13 +31,15 @@ CHAR-COUNT and COMPARISON-CHAR-COUNT should be alists in (character . count) for
         (setq are-equal nil)))))
 
 (defun anagrams-for(word anagrams)
+  "Return all elements of ANAGRAMS which are anagrams for WORD.
+Case insensitive."
   (let ((candidates ())
-        (word-char-count (make-char-count word)))
+        (word-char-count (get-char-count (downcase word))))
     (dolist (candidate anagrams candidates)
       (if (and
            (not (string-equal word candidate))
            (equal (length word) (length candidate))
-           (compare-char-counts word-char-count (make-char-count candidate)))
+           (equal-char-count word-char-count (get-char-count (downcase candidate))))
           (if (> (length candidates) 0)
               (add-to-list 'candidates candidate t)
             (setq candidates (cons candidate nil)))))))

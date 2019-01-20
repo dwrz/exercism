@@ -4,8 +4,6 @@
 
 ;;; Code:
 
-(require 'cl)
-
 (provide 'anagram)
 
 (defun make-char-count(s)

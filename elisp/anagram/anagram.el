@@ -6,16 +6,15 @@
 
 (provide 'anagram)
 
-(defun get-char-count(w)
+(defun get-char-count (w)
   "Return an associative list of character counts for W."
-  (let ((char-list (mapcar (lambda (char) (string char)) w))
+  (let ((char-list (string-to-list w))
         (char-count ()))
     ;; Build an associative list from the character list.
     (dolist (char char-list char-count)
-      (if (assoc char char-count)
-          (setcdr (assoc char char-count)
-                  (1+ (cdr (assoc char char-count))))
-        (setq char-count (cons (cons char 1) char-count))))))
+      (let ((entry (assoc char char-count)))
+        (if entry (cl-incf (cdr entry))
+          (push (cons char 1) char-count))))))
 
 (defun equal-char-count(char-count comparison-char-count)
   "Return t if the submitted character counts are equal, false otherwise.

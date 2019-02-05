@@ -16,7 +16,7 @@
         (if entry (cl-incf (cdr entry))
           (push (cons char 1) char-count))))))
 
-(defun equal-char-count(char-count comparison-char-count)
+(defun equal-char-count (char-count comparison-char-count)
   "Return t if the submitted character counts are equal, false otherwise.
 CHAR-COUNT and COMPARISON-CHAR-COUNT should be alists in (character . count) format."
   (let ((are-equal t))

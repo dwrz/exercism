@@ -8,9 +8,9 @@
 
 (defun leap-year-p (year)
 "Return whether a given year is a leap-year."
-  (when (= (mod year 4) 0)
-    (if (= (mod year 100) 0)
-        (when (= (mod year 400) 0) t)
+  (when (zerop (mod year 4))
+    (if (zerop (mod year 100))
+        (when (zerop (mod year 400)) t)
       t)))
 
 ;;; leap.el ends here

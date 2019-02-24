@@ -1,8 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-int length(const char string[])
-{
+int length(const char string[]) {
   int i = 0;
   while (string[i] != '\0') {
     i++;

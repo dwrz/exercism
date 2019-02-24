@@ -18,12 +18,6 @@ char lowercase(char* c) {
   return *c;
 }
 
-void lowercase_phrase(char phrase[]) {
-  for (int i = 0; i < length(phrase); i++) {
-    phrase[i] = lowercase(&phrase[i]);
-  }
-}
-
 bool is_symbol_char(char c) {
   // Ignore symbols that precede alpha chars.
   if (c < 65 || c > 122) {

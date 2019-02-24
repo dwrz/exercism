@@ -10,12 +10,12 @@ int length(const char string[])
   return i+1; // Account for terminating null character.
 }
 
-char lowercase(char* c) {
+char lowercase(char c) {
   // Lowercase only ASCII capital characters.
-  if (*c >= 65 && *c <= 90) {
-    return *c + 32;
+  if (c >= 65 && c <= 90) {
+    return c + 32;
   }
-  return *c;
+  return c;
 }
 
 bool is_symbol_char(char c) {

@@ -33,21 +33,15 @@ bool is_symbol_char(char c) {
 bool is_isogram(const char phrase[]) {
   if (phrase == NULL) { return false; }
   if (length(phrase) == 0) { return true; }
-  // Lowercase the phrase.
-  // We make a copy, since the input is constant.
-  char lower_phrase[(length(phrase))];
-  copy_phrase(phrase, lower_phrase);
-  lowercase_phrase(lower_phrase);
-  // Check if the lowercased phrase is an isogram.
-  for (int i = 0; i < length(lower_phrase); i++) {
-    if (is_symbol_char(lower_phrase[i])) { continue; } // Ignore non-alpha chars.
-    for (int j = 0; j < length(lower_phrase); j++) {
-      if (is_symbol_char(lower_phrase[j])) { continue; }
-      if (j == i) { continue; }
-      if (lower_phrase[i] == lower_phrase[j]) {
-        return false;
-      }
+  // There are 26 lowercased ASCII alpha chars.
+  // We can use 26 indexes to keep track of each one.
+  char char_map[26] = { 0 };
+  for (int i = 0; i < length(phrase); i++) {
+    if (is_symbol_char(phrase[i])) { continue; } // Ignore non-alpha chars.
+    if (char_map[lowercase(phrase[i]) - 97] != 0) {
+      return false;
     }
+    char_map[lowercase(phrase[i]) - 97]++;
   }
   return true;
 }

@@ -10,14 +10,6 @@ int length(const char string[])
   return i+1; // Account for terminating null character.
 }
 
-void copy_phrase(const char phrase[], char copy[]) {
-  int i;
-  for (i = 0; i < length(phrase); i++) {
-    copy[i] = phrase[i];
-  }
-  copy[i+1]= '\0';
-}
-
 char lowercase(char* c) {
   // Lowercase only ASCII capital characters.
   if (*c >= 65 && *c <= 90) {

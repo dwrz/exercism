@@ -9,21 +9,15 @@ int length(const char string[]) {
 
 char lowercase(char c) {
   // Lowercase only ASCII uppercase chars.
-  if (c >= 65 && c <= 90) {
-    return c + 32;
-  }
+  if (c >= 65 && c <= 90) { return c + 32; }
   return c;
 }
 
 bool is_symbol_char(char c) {
   // Catch chars that precede or follow alpha chars.
-  if (c < 65 || c > 122) {
-    return true;
-  }
+  if (c < 65 || c > 122) { return true; }
   // Catch chars intervening the upper and lowercase alpha chars.
-  if (c > 90 && c < 97) {
-    return true;
-  }
+  if (c > 90 && c < 97) { return true; }
   return false;
 }
 
@@ -36,7 +30,7 @@ bool is_isogram(const char phrase[]) {
   for (int i = 0; i < length(phrase); i++) {
     if (is_symbol_char(phrase[i])) { continue; } // Ignore non-alpha chars.
     if (char_map[lowercase(phrase[i]) - 97] != 0) { return false; }
-    // Keep track of chars by incrementing the index value.
+    // Increment the count for this char.
     char_map[lowercase(phrase[i]) - 97]++;
   }
   return true;

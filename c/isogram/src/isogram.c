@@ -17,14 +17,12 @@ bool is_symbol_char(char c) {
 
 bool is_isogram(const char phrase[]) {
   if (phrase == NULL) { return false; }
-  if (length(phrase) == 0) { return true; }
   // There are 26 lowercased ASCII alpha chars (97-122).
   // We can use 26 indexes to keep track of each one.
   char char_map[26] = { 0 };
-  for (int i = 0; i < length(phrase); i++) {
+  for (int i = 0; phrase[i] != '\0'; i++) {
     if (is_symbol_char(phrase[i])) { continue; } // Ignore non-alpha chars.
     if (char_map[lowercase(phrase[i]) - 97] != 0) { return false; }
-    // Increment the count for this char.
     char_map[lowercase(phrase[i]) - 97]++;
   }
   return true;

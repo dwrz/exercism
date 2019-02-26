@@ -1,12 +1,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-int length(const char string[]) {
-  int i = 0;
-  while (string[i] != '\0') { i++; }
-  return i;
-}
-
 char lowercase(char c) {
   // Lowercase only ASCII uppercase chars.
   if (c >= 65 && c <= 90) { return c + 32; }

@@ -1,5 +1,5 @@
-#include <stdbool.h>
 #include <stdio.h>
+#include "isogram.h"
 
 char lowercase(char c) {
   // Lowercase only ASCII uppercase chars.

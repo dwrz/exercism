@@ -67,10 +67,8 @@ bool is_quote_char(char c) {
   switch (c) {
   case '\'':
     return true;
-    break;
   case '"':
     return true;
-    break;
   }
   return false;
 }

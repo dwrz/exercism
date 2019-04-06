@@ -26,16 +26,4 @@ typedef struct word_count_word {
 //           words will contain the results up to that point.
 int word_count(const char *input_text, word_count_word_t *words);
 
-bool increment_seen_words(char *word, int count, word_count_word_t *origin);
-
-void lowercase(char *s);
-
-bool is_quote_char(char s);
-
-bool is_quoted_word(char *token);
-
-void process_token(int *unique_words,
-                   char *token,
-                   word_count_word_t *words);
-
 #endif

@@ -1,9 +1,8 @@
 #include "grains.h"
 
 unsigned long long square(int n) {
-  if (!validSquare(n)) return 0;
-  if (n == 1) return 1;
-  return 2llu << (n-2);
+  if (n < 1 || n > 64) return 0;
+  return 1ull << (n-1);
 }
 
 unsigned long long total() {

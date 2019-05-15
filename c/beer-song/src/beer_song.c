@@ -39,9 +39,19 @@ int verse(char* response, int bottles) {
 }
 
 void sing(char *response, int start, int finish) {
+  char *origin = response;
+
   for (int i = start; i >= finish; i--) {
-    verse(response, i);
+    int charsAdded = verse(response, i);
+    response += charsAdded;
+
+    // Add a newline between verses,
+    // except for the last verse.
+    if (i != finish) {
+      sprintf(response, "\n");
+      response += 1;
+    }
   }
 
-  return ;
+  response = origin;
 }

@@ -56,7 +56,12 @@ func giftsForDay(day int) string {
 	}
 }
 
+// Verse returns the matching verse for the inputted day.
+// Day must be an integer between 1 and 12.
 func Verse(day int) string {
+	if day < 0 || day > 12 {
+		return ""
+	}
 	return fmt.Sprintf(
 		"On the %s day of Christmas my true love gave to me: %s.",
 		ordinals[day],
@@ -64,6 +69,8 @@ func Verse(day int) string {
 	)
 }
 
+// Song returns the text of the song "Twelve Days of Christmas".
+// Its verses are separated by newlines.
 func Song() (song string) {
 	for day := 1; day <= 12; day++ {
 		song += fmt.Sprintf("%s\n", Verse(day))
